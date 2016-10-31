@@ -1,0 +1,64 @@
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MiniHub</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="github username" 
+                        ng-model="user">
+                    </div>
+                    <button type="submit" class="btn btn-success" ng-click="change()">Buscar</button>
+                </form>
+            </div>
+       
+        </div>
+       
+    </nav>
+    </br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3" ng-model="gifs" ng-if="gifs">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <img ng-src="{{gifs.avatar_url}}" alt="" WIDTH="90px" HEIGHT="90px" >
+                    </div>
+                </div>
+                <h3>{{ gifs.login }}</h3>
+                <p><h6>{{gifs.company}}<span class="glyphicon glyphicon-briefcase"></span></h6></p>
+                <p><h6>{{gifs.company}}<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            </h6></p>
+                <p><h6>Joined {{gifs.created_at}}<span class="glyphicon glyphicon-time" aria-hidden="true"></span></h6></p>
+            </div>
+
+            <div class="col-md-8" ng-if="repositorios">
+                <p class="lead">Repositorios</p>
+                <div class="row" ng-repeat="repo in repositorios">
+                    <div class="row">
+                        <div class="col-md-8"><p class="text-primary"><b>{{repo.name}}</b></p></div>
+                        <div class="col-md-3">{{repo.language}}</div>
+                        <div class="col-md-1">1</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-11">{{repo.description}}</div>
+                        <div class="col-md-1">2</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-11"></div>
+                        <div class="col-md-1">3</div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
